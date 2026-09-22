@@ -3,467 +3,1012 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Para Lisbeth y Wendy 💛</title>
+<title>Para ti ❤️</title>
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box}
-
-body{
-  font-family:Georgia,serif;
-  background:#050805;
-  color:white;
-  overflow:hidden;
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
 }
 
-/* ---------- PORTADA ---------- */
-#portada{
-  position:fixed;
-  inset:0;
-  z-index:100;
-  display:flex;
-  align-items:center;
-  justify-content:center;
-  text-align:center;
-  padding:25px;
-  background:
-    radial-gradient(circle at 50% 60%,#443900 0%,#161500 35%,#030503 75%);
+html,body{
+    width:100%;
+    height:100%;
+    overflow:hidden;
+    background:#000;
+    font-family:"Segoe UI",sans-serif;
 }
 
-.caja{
-  max-width:700px;
-  animation:entrada 1.8s ease;
+canvas{
+    position:fixed;
+    inset:0;
+    width:100%;
+    height:100%;
 }
 
-.pequeno{
-  color:#ffe76a;
-  letter-spacing:5px;
-  font-size:14px;
+/* =========================
+   PANTALLA INICIAL
+========================= */
+
+#inicio{
+    position:fixed;
+    inset:0;
+    z-index:20;
+
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+
+    text-align:center;
+    padding:25px;
+
+    background:
+    radial-gradient(circle at center,
+    #07182c 0%,
+    #020711 45%,
+    #000 75%);
+
+    transition:
+    opacity 1.5s ease,
+    transform 1.5s ease;
 }
 
-#portada h1{
-  margin-top:18px;
-  font-size:clamp(38px,8vw,75px);
-  color:#ffe13b;
-  text-shadow:0 0 15px #ffd900,0 0 45px #b99500;
+#inicio .mini{
+    color:#55bfff;
+    letter-spacing:5px;
+    font-size:13px;
+
+    text-shadow:
+    0 0 10px #008cff;
 }
 
-#portada p{
-  margin-top:22px;
-  font-family:"Segoe UI",sans-serif;
-  line-height:1.7;
-  color:#fffbdc;
-  font-size:18px;
+#inicio h1{
+    margin-top:15px;
+
+    color:#dff5ff;
+
+    font-size:clamp(38px,8vw,75px);
+    font-weight:300;
+
+    text-shadow:
+    0 0 8px white,
+    0 0 20px #168dff,
+    0 0 45px #0077ff;
+
+    animation:respirar 2s infinite alternate;
 }
 
-button{
-  margin-top:35px;
-  padding:16px 35px;
-  border:1px solid #ffe43b;
-  border-radius:50px;
-  background:#ffe13b;
-  color:#171400;
-  font-size:17px;
-  font-weight:bold;
-  cursor:pointer;
-  box-shadow:0 0 30px #ffd90088;
-  animation:pulso 1.6s infinite;
+#inicio p{
+    margin-top:20px;
+
+    color:#acdfff;
+
+    font-size:17px;
+    line-height:1.7;
+
+    max-width:500px;
+}
+
+#inicio button{
+    margin-top:35px;
+
+    padding:15px 35px;
+
+    border:1px solid #4fc3ff;
+    border-radius:50px;
+
+    background:transparent;
+
+    color:white;
+
+    font-size:17px;
+
+    cursor:pointer;
+
+    box-shadow:
+    0 0 12px #008cff,
+    inset 0 0 12px #008cff;
+
+    animation:pulso 1.5s infinite;
 }
 
 @keyframes pulso{
-  50%{transform:scale(1.07);box-shadow:0 0 50px #ffd900}
+    50%{
+        transform:scale(1.08);
+
+        box-shadow:
+        0 0 25px #008cff,
+        0 0 50px #006eff,
+        inset 0 0 15px #008cff;
+    }
 }
 
-@keyframes entrada{
-  from{opacity:0;transform:translateY(30px)}
-  to{opacity:1;transform:translateY(0)}
+@keyframes respirar{
+    from{opacity:.7}
+    to{opacity:1}
 }
 
-/* ---------- ESCENA ---------- */
-#escena{
-  display:none;
-  position:fixed;
-  inset:0;
-  overflow:hidden;
-  background:
-    radial-gradient(circle at 50% 100%,#304515 0%,#101807 25%,#040704 65%);
+
+/* =========================
+   I LOVE YOU
+========================= */
+
+#love{
+    position:fixed;
+
+    z-index:10;
+
+    top:6%;
+
+    width:100%;
+
+    text-align:center;
+
+    color:#9bdcff;
+
+    font-family:"Brush Script MT",cursive;
+
+    font-size:clamp(40px,7vw,70px);
+
+    opacity:0;
+
+    transform:translateY(-20px);
+
+    transition:2s;
+
+    text-shadow:
+    0 0 5px #fff,
+    0 0 12px #00a2ff,
+    0 0 30px #0077ff,
+    0 0 60px #0055ff;
 }
 
-/* LUCES */
-.luz{
-  position:absolute;
-  width:4px;
-  height:4px;
-  border-radius:50%;
-  background:#ffe95c;
-  box-shadow:0 0 12px #ffe95c,0 0 25px #ffd900;
-  animation:volar linear infinite;
+#love.visible{
+    opacity:1;
+    transform:translateY(0);
 }
 
-@keyframes volar{
-  0%{transform:translate(0,30px);opacity:0}
-  20%{opacity:1}
-  50%{transform:translate(25px,-100px)}
-  100%{transform:translate(-15px,-230px);opacity:0}
+
+/* =========================
+   FRASE
+========================= */
+
+#frase{
+    position:fixed;
+
+    z-index:10;
+
+    bottom:6%;
+
+    left:50%;
+
+    width:90%;
+    max-width:650px;
+
+    transform:
+    translateX(-50%)
+    translateY(30px);
+
+    text-align:center;
+
+    color:#d8f3ff;
+
+    font-size:clamp(15px,2.5vw,19px);
+
+    line-height:1.7;
+
+    opacity:0;
+
+    transition:2s;
+
+    text-shadow:
+    0 0 8px #008cff88;
 }
 
-/* ---------- TEXTO ---------- */
-.mensaje{
-  position:absolute;
-  z-index:20;
-  top:5%;
-  width:100%;
-  padding:15px 20px;
-  text-align:center;
-  pointer-events:none;
+#frase.visible{
+    opacity:1;
+
+    transform:
+    translateX(-50%)
+    translateY(0);
 }
 
-.mensaje .fecha{
-  color:#e9cf55;
-  letter-spacing:4px;
-  font-family:"Segoe UI",sans-serif;
-  font-size:13px;
-  opacity:0;
-  animation:mostrar 1s forwards .5s;
-}
+#frase strong{
+    color:#68caff;
 
-.mensaje h1{
-  color:#ffe54e;
-  margin-top:10px;
-  font-size:clamp(34px,6vw,60px);
-  text-shadow:0 0 18px #d9b900;
-  opacity:0;
-  animation:mostrar 1.4s forwards 1.2s;
+    text-shadow:
+    0 0 10px #008cff,
+    0 0 20px #006eff;
 }
-
-.mensaje h2{
-  font-family:"Segoe UI",sans-serif;
-  letter-spacing:5px;
-  font-weight:300;
-  margin-top:4px;
-  font-size:clamp(21px,4vw,33px);
-  opacity:0;
-  animation:mostrar 1.4s forwards 2s;
-}
-
-.texto{
-  max-width:700px;
-  margin:18px auto 0;
-  font-family:"Segoe UI",sans-serif;
-  font-size:clamp(15px,2.4vw,19px);
-  line-height:1.65;
-  color:#fffbe7;
-  opacity:0;
-  animation:mostrar 2s forwards 3s;
-}
-
-.texto strong{color:#ffe35b}
 
 .firma{
-  margin-top:12px;
-  color:#ffe35b;
-  font-style:italic;
+    display:block;
+
+    margin-top:10px;
+
+    color:#84d4ff;
+
+    font-family:cursive;
+
+    font-size:21px;
 }
 
-@keyframes mostrar{
-  from{opacity:0;transform:translateY(18px)}
-  to{opacity:1;transform:translateY(0)}
+
+/* =========================
+   TEXTO PEQUEÑO
+========================= */
+
+#estado{
+    position:fixed;
+
+    z-index:9;
+
+    width:100%;
+
+    bottom:3%;
+
+    text-align:center;
+
+    color:#2187c5;
+
+    font-size:11px;
+
+    letter-spacing:4px;
+
+    opacity:0;
 }
 
-/* ---------- JARDÍN ---------- */
-.jardin{
-  position:absolute;
-  z-index:8;
-  bottom:0;
-  left:0;
-  width:100%;
-  height:48%;
-}
 
-/* CADA PLANTA */
-.planta{
-  position:absolute;
-  bottom:-5px;
-  width:100px;
-  height:100%;
-  transform-origin:bottom center;
-}
+/* CELULAR */
 
-.tallo{
-  position:absolute;
-  bottom:0;
-  left:48px;
-  width:5px;
-  height:0;
-  border-radius:8px;
-  background:linear-gradient(to right,#234c18,#5c8f32,#234c18);
-  animation:crecerTallo 2.2s ease-out forwards;
-}
-
-@keyframes crecerTallo{
-  to{height:var(--alto)}
-}
-
-/* HOJAS */
-.hoja{
-  position:absolute;
-  width:40px;
-  height:20px;
-  background:linear-gradient(135deg,#6a9c39,#234c18);
-  border-radius:100% 0 100% 0;
-  opacity:0;
-}
-
-.hoja.izq{
-  left:12px;
-  bottom:28%;
-  transform:rotate(25deg);
-  animation:hojaIzq .8s forwards;
-  animation-delay:var(--delay-hoja);
-}
-
-.hoja.der{
-  left:51px;
-  bottom:42%;
-  transform:scaleX(-1) rotate(25deg);
-  animation:hojaDer .8s forwards;
-  animation-delay:var(--delay-hoja);
-}
-
-@keyframes hojaIzq{
-  from{opacity:0;transform:scale(0) rotate(25deg)}
-  to{opacity:1;transform:scale(1) rotate(25deg)}
-}
-@keyframes hojaDer{
-  from{opacity:0;transform:scale(0) scaleX(-1) rotate(25deg)}
-  to{opacity:1;transform:scale(1) scaleX(-1) rotate(25deg)}
-}
-
-/* FLOR */
-.flor{
-  position:absolute;
-  left:50px;
-  bottom:var(--alto);
-  width:0;
-  height:0;
-  opacity:0;
-  animation:abrirFlor 1.3s ease-out forwards;
-  animation-delay:var(--delay-flor);
-}
-
-@keyframes abrirFlor{
-  0%{opacity:0;transform:scale(0) rotate(-20deg)}
-  70%{opacity:1;transform:scale(1.15) rotate(3deg)}
-  100%{opacity:1;transform:scale(1)}
-}
-
-.petalo{
-  position:absolute;
-  width:22px;
-  height:45px;
-  left:-11px;
-  top:-40px;
-  border-radius:60% 60% 45% 45%;
-  transform-origin:50% 40px;
-  background:
-    radial-gradient(circle at 50% 25%,#fff59a 0%,#ffe331 35%,#f1b900 100%);
-  box-shadow:0 0 10px #ffd90066;
-}
-
-.p1{transform:rotate(0deg)}
-.p2{transform:rotate(45deg)}
-.p3{transform:rotate(90deg)}
-.p4{transform:rotate(135deg)}
-.p5{transform:rotate(180deg)}
-.p6{transform:rotate(225deg)}
-.p7{transform:rotate(270deg)}
-.p8{transform:rotate(315deg)}
-
-.centro{
-  position:absolute;
-  width:30px;
-  height:30px;
-  left:-15px;
-  top:-15px;
-  border-radius:50%;
-  background:radial-gradient(circle,#6b4615,#3d240b);
-  box-shadow:0 0 10px #ffc800;
-  z-index:4;
-}
-
-/* PASTO */
-.pasto{
-  position:absolute;
-  bottom:-10px;
-  width:100%;
-  height:70px;
-  background:
-    repeating-linear-gradient(
-      75deg,
-      transparent 0 12px,
-      #263d16 13px 16px,
-      transparent 17px 25px
-    );
-  opacity:.8;
-}
-
-/* MÓVIL */
 @media(max-width:600px){
-  .mensaje{top:3%}
-  .texto{line-height:1.45;font-size:14px;margin-top:10px}
-  .jardin{height:38%}
-  .mensaje h1{font-size:32px}
-  .mensaje h2{font-size:20px}
+
+    #love{
+        top:5%;
+    }
+
+    #frase{
+        bottom:4%;
+        line-height:1.5;
+        font-size:14px;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
-<div id="portada">
-  <div class="caja">
-    <div class="pequeno">UN PEQUEÑO DETALLE 💛</div>
+<canvas id="canvas"></canvas>
 
-    <h1>Lisbeth & Wendy</h1>
+
+<!-- PANTALLA INICIAL -->
+
+<div id="inicio">
+
+    <div class="mini">
+        SOLO PARA TI ❤️
+    </div>
+
+    <h1>
+        Tengo algo que decirte...
+    </h1>
 
     <p>
-      Sé que llegó un poquito tarde...<br>
-      pero hay detalles que no deberían quedarse sin entregar.
+        No sabía cómo expresarlo con palabras,
+        así que decidí hacer algo diferente.
+        <br><br>
+        Esto es para ti.
     </p>
 
-    <button onclick="abrirRegalo()">
-      Toca aquí, esto es para ustedes 💛
+    <button onclick="comenzar()">
+        Toca aquí ❤️
     </button>
-  </div>
-</div>
-
-<div id="escena">
-
-  <div class="mensaje">
-    <div class="fecha">22 DE SEPTIEMBRE</div>
-
-    <h1>Flores amarillas para ustedes</h1>
-
-    <h2>LISBETH & WENDY</h2>
-
-    <div class="texto">
-      Sé que ya es <strong>22 de septiembre</strong>
-      y no sé si ayer recibieron flores amarillas...
-      <br><br>
-
-      Pero quería recordarles algo:
-      son <strong>dos mujeres increíbles, valientes y guerreras.</strong>
-      🌻
-      <br><br>
-
-      Tal vez estas flores no puedan sostenerlas entre sus manos,
-      pero cada una de ellas fue hecha especialmente para ustedes.
-      <br><br>
-
-      Porque a veces un pequeño detalle es suficiente para recordarles
-      a personas especiales <strong>lo mucho que valen.</strong>
-
-      <div class="firma">
-        Con mucho cariño, estas flores son para ustedes. 💛
-      </div>
-    </div>
-  </div>
-
-  <div class="jardin" id="jardin">
-    <div class="pasto"></div>
-  </div>
 
 </div>
+
+
+<!-- TEXTO -->
+
+<div id="love">
+    I Love You
+</div>
+
+
+<div id="frase">
+
+    Llegaste a mi vida sin que lo esperara
+
+    <br>
+
+    y poco a poco te convertiste en
+
+    <strong>
+        alguien muy especial para mí.
+    </strong>
+
+    <br><br>
+
+    Me gusta compartir contigo,
+    conocerte y descubrir cada día
+
+    un poquito más de ti.
+
+    <br><br>
+
+    No sé qué nos depare el tiempo,
+
+    pero sí sé que quiero
+
+    <strong>
+        seguir creando momentos contigo. ❤️
+    </strong>
+
+    <span class="firma">
+        Gracias por aparecer en mi vida.
+    </span>
+
+</div>
+
+
+<div id="estado">
+    HECHO ESPECIALMENTE PARA TI
+</div>
+
+
 
 <script>
 
-function abrirRegalo(){
-  document.getElementById("portada").style.display="none";
-  document.getElementById("escena").style.display="block";
+/* =========================================
+   CANVAS
+========================================= */
 
-  crearLuces();
-  crearJardin();
+const canvas =
+document.getElementById("canvas");
+
+const ctx =
+canvas.getContext("2d");
+
+let W;
+let H;
+
+let particulas=[];
+
+let estrellas=[];
+
+let iniciado=false;
+
+let tiempo=0;
+
+
+/* =========================================
+   AJUSTAR PANTALLA
+========================================= */
+
+function resize(){
+
+    W=canvas.width=
+    window.innerWidth;
+
+    H=canvas.height=
+    window.innerHeight;
+
+    if(iniciado){
+        crearCorazon();
+        crearEstrellas();
+    }
 }
 
-/* LUCIÉRNAGAS */
-function crearLuces(){
+window.addEventListener(
+    "resize",
+    resize
+);
 
-  const escena=document.getElementById("escena");
+resize();
 
-  for(let i=0;i<45;i++){
 
-    const luz=document.createElement("div");
-    luz.className="luz";
+/* =========================================
+   ESTRELLAS
+========================================= */
 
-    luz.style.left=Math.random()*100+"%";
-    luz.style.top=(30+Math.random()*70)+"%";
-    luz.style.animationDuration=(4+Math.random()*6)+"s";
-    luz.style.animationDelay=(Math.random()*5)+"s";
+class Estrella{
 
-    escena.appendChild(luz);
-  }
+    constructor(){
+
+        this.x=Math.random()*W;
+
+        this.y=Math.random()*H;
+
+        this.r=
+        Math.random()*1.5+.2;
+
+        this.alpha=
+        Math.random();
+
+        this.vel=
+        Math.random()*.02+.005;
+
+    }
+
+    update(){
+
+        this.alpha+=this.vel;
+
+        if(
+            this.alpha>1 ||
+            this.alpha<.1
+        ){
+            this.vel*=-1;
+        }
+    }
+
+    draw(){
+
+        ctx.beginPath();
+
+        ctx.arc(
+            this.x,
+            this.y,
+            this.r,
+            0,
+            Math.PI*2
+        );
+
+        ctx.fillStyle=
+        `rgba(70,170,255,${this.alpha})`;
+
+        ctx.fill();
+    }
 }
 
-/* CREA UNA FLOR COMPLETA */
-function crearFlor(x,alto,delay,escala){
 
-  const planta=document.createElement("div");
-  planta.className="planta";
+function crearEstrellas(){
 
-  planta.style.left=x+"%";
-  planta.style.transform=`translateX(-50%) scale(${escala})`;
+    estrellas=[];
 
-  planta.innerHTML=`
-    <div class="tallo"
-      style="
-        --alto:${alto}px;
-        animation-delay:${delay}s;
-      ">
-    </div>
+    for(let i=0;i<120;i++){
 
-    <div class="hoja izq"
-      style="--delay-hoja:${delay+1.3}s">
-    </div>
+        estrellas.push(
+            new Estrella()
+        );
 
-    <div class="hoja der"
-      style="--delay-hoja:${delay+1.6}s">
-    </div>
-
-    <div class="flor"
-      style="
-        --alto:${alto}px;
-        --delay-flor:${delay+2}s;
-      ">
-
-      <div class="petalo p1"></div>
-      <div class="petalo p2"></div>
-      <div class="petalo p3"></div>
-      <div class="petalo p4"></div>
-      <div class="petalo p5"></div>
-      <div class="petalo p6"></div>
-      <div class="petalo p7"></div>
-      <div class="petalo p8"></div>
-
-      <div class="centro"></div>
-    </div>
-  `;
-
-  document.getElementById("jardin").appendChild(planta);
+    }
 }
 
-/* JARDÍN */
-function crearJardin(){
 
-  crearFlor(8,150,.2,.75);
-  crearFlor(17,210,.5,.85);
-  crearFlor(27,165,.8,.70);
-  crearFlor(37,235,1.1,.95);
-  crearFlor(47,185,1.4,.80);
+/* =========================================
+   PARTÍCULA DEL CORAZÓN
+========================================= */
 
-  crearFlor(57,245,1.7,1);
-  crearFlor(67,180,2,.75);
-  crearFlor(77,225,2.3,.90);
-  crearFlor(87,165,2.6,.72);
-  crearFlor(95,205,2.9,.82);
+class Particula{
+
+    constructor(tx,ty){
+
+        /*
+        Empieza en una posición
+        aleatoria alrededor de la pantalla
+        */
+
+        this.x=
+        Math.random()*W;
+
+        this.y=
+        Math.random()*H;
+
+
+        this.tx=tx;
+        this.ty=ty;
+
+
+        this.velocidad=
+        .015+
+        Math.random()*.025;
+
+
+        this.radio=
+        Math.random()*1.7+.4;
+
+
+        this.alpha=
+        Math.random()*.7+.3;
+
+
+        this.offset=
+        Math.random()*Math.PI*2;
+
+    }
+
+
+    update(latido){
+
+        /*
+        Objetivo con pequeño latido
+        */
+
+        const cx=W/2;
+
+        const cy=H*.43;
+
+
+        const objetivoX=
+        cx+
+        (this.tx-cx)*latido;
+
+
+        const objetivoY=
+        cy+
+        (this.ty-cy)*latido;
+
+
+        this.x+=
+        (objetivoX-this.x)
+        *this.velocidad;
+
+
+        this.y+=
+        (objetivoY-this.y)
+        *this.velocidad;
+
+    }
+
+
+    draw(){
+
+        ctx.beginPath();
+
+        ctx.arc(
+            this.x,
+            this.y,
+            this.radio,
+            0,
+            Math.PI*2
+        );
+
+
+        ctx.fillStyle=
+        `rgba(
+        ${60+Math.random()*40},
+        ${150+Math.random()*80},
+        255,
+        ${this.alpha}
+        )`;
+
+
+        ctx.shadowBlur=12;
+
+        ctx.shadowColor=
+        "#008cff";
+
+
+        ctx.fill();
+
+    }
+
+}
+
+
+/* =========================================
+   CREAR CORAZÓN
+========================================= */
+
+function crearCorazon(){
+
+    particulas=[];
+
+
+    const cantidad=
+    W<600
+    ? 1500
+    : 2500;
+
+
+    const escala=
+    Math.min(W,H)
+    *
+    (W<600
+    ? .0165
+    : .020);
+
+
+    const centroX=W/2;
+
+    /*
+    Lo colocamos un poco arriba
+    para dejar espacio al texto
+    */
+
+    const centroY=H*.43;
+
+
+    for(let i=0;i<cantidad;i++){
+
+        const t=
+        Math.random()
+        *Math.PI*2;
+
+
+        /*
+        Fórmula matemática
+        del corazón
+        */
+
+        let x=
+        16*
+        Math.pow(
+            Math.sin(t),
+            3
+        );
+
+
+        let y=
+
+        13*Math.cos(t)
+
+        -5*Math.cos(2*t)
+
+        -2*Math.cos(3*t)
+
+        -Math.cos(4*t);
+
+
+        /*
+        Esto llena también
+        el interior del corazón
+        */
+
+        const interior=
+        Math.sqrt(
+            Math.random()
+        );
+
+
+        x*=interior;
+
+        y*=interior;
+
+
+        const tx=
+        centroX+
+        x*escala;
+
+
+        const ty=
+        centroY-
+        y*escala;
+
+
+        particulas.push(
+
+            new Particula(
+                tx,
+                ty
+            )
+
+        );
+
+    }
+
+}
+
+
+/* =========================================
+   ARO DE ENERGÍA
+========================================= */
+
+function dibujarAro(){
+
+    const cx=W/2;
+
+    const cy=
+    H*.43+
+    Math.min(W,H)*.20;
+
+
+    /*
+    ARO PRINCIPAL
+    */
+
+    ctx.save();
+
+
+    ctx.beginPath();
+
+    ctx.ellipse(
+        cx,
+        cy,
+        Math.min(W,H)*.15,
+        Math.min(W,H)*.025,
+        0,
+        0,
+        Math.PI*2
+    );
+
+
+    ctx.strokeStyle=
+    "rgba(60,180,255,.65)";
+
+
+    ctx.lineWidth=2;
+
+
+    ctx.shadowBlur=25;
+
+    ctx.shadowColor=
+    "#00a2ff";
+
+
+    ctx.stroke();
+
+
+    /*
+    SEGUNDO ARO
+    */
+
+    ctx.beginPath();
+
+    ctx.ellipse(
+        cx,
+        cy,
+        Math.min(W,H)*.11,
+        Math.min(W,H)*.017,
+        0,
+        0,
+        Math.PI*2
+    );
+
+
+    ctx.strokeStyle=
+    "rgba(180,230,255,.8)";
+
+
+    ctx.lineWidth=1;
+
+    ctx.stroke();
+
+
+    /*
+    LUZ CENTRAL
+    */
+
+    const gradiente=
+    ctx.createRadialGradient(
+        cx,
+        cy,
+        0,
+        cx,
+        cy,
+        Math.min(W,H)*.16
+    );
+
+
+    gradiente.addColorStop(
+        0,
+        "rgba(130,220,255,.45)"
+    );
+
+
+    gradiente.addColorStop(
+        .35,
+        "rgba(0,130,255,.18)"
+    );
+
+
+    gradiente.addColorStop(
+        1,
+        "rgba(0,0,0,0)"
+    );
+
+
+    ctx.fillStyle=
+    gradiente;
+
+
+    ctx.beginPath();
+
+    ctx.ellipse(
+        cx,
+        cy,
+        Math.min(W,H)*.17,
+        Math.min(W,H)*.06,
+        0,
+        0,
+        Math.PI*2
+    );
+
+
+    ctx.fill();
+
+    ctx.restore();
+
+
+    /*
+    CHISPAS ALREDEDOR
+    */
+
+    for(let i=0;i<18;i++){
+
+        const angulo=
+        Math.random()
+        *Math.PI*2;
+
+
+        const radio=
+        Math.min(W,H)
+        *
+        (
+            .10+
+            Math.random()*.07
+        );
+
+
+        const x=
+        cx+
+        Math.cos(angulo)
+        *radio;
+
+
+        const y=
+        cy+
+        Math.sin(angulo)
+        *radio*.15;
+
+
+        ctx.beginPath();
+
+        ctx.arc(
+            x,
+            y,
+            Math.random()*1.4,
+            0,
+            Math.PI*2
+        );
+
+
+        ctx.fillStyle=
+        "rgba(90,190,255,.7)";
+
+
+        ctx.fill();
+
+    }
+
+}
+
+
+/* =========================================
+   ANIMACIÓN
+========================================= */
+
+function animar(){
+
+    /*
+    Deja una pequeña estela
+    */
+
+    ctx.fillStyle=
+    "rgba(0,0,0,.23)";
+
+    ctx.fillRect(
+        0,
+        0,
+        W,
+        H
+    );
+
+
+    estrellas.forEach(
+        e=>{
+
+            e.update();
+            e.draw();
+
+        }
+    );
+
+
+    if(iniciado){
+
+        tiempo+=.035;
+
+
+        /*
+        Latido suave
+        */
+
+        const latido=
+        1+
+        Math.sin(tiempo)
+        *.025;
+
+
+        particulas.forEach(
+            p=>{
+
+                p.update(latido);
+
+                p.draw();
+
+            }
+        );
+
+
+        dibujarAro();
+
+    }
+
+
+    requestAnimationFrame(
+        animar
+    );
+
+}
+
+
+crearEstrellas();
+
+animar();
+
+
+/* =========================================
+   INICIAR
+========================================= */
+
+function comenzar(){
+
+    iniciado=true;
+
+
+    crearCorazon();
+
+
+    const inicio=
+    document.getElementById(
+        "inicio"
+    );
+
+
+    inicio.style.opacity="0";
+
+    inicio.style.transform=
+    "scale(1.1)";
+
+
+    setTimeout(()=>{
+
+        inicio.style.display=
+        "none";
+
+    },1400);
+
+
+    /*
+    I LOVE YOU
+    */
+
+    setTimeout(()=>{
+
+        document
+        .getElementById("love")
+        .classList.add("visible");
+
+    },1800);
+
+
+    /*
+    DEDICATORIA
+    */
+
+    setTimeout(()=>{
+
+        document
+        .getElementById("frase")
+        .classList.add("visible");
+
+    },6500);
+
 }
 
 </script>
