@@ -3,750 +3,467 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
 <title>Para Lisbeth y Wendy 💛</title>
 
 <style>
-
-*{
-    margin:0;
-    padding:0;
-    box-sizing:border-box;
-}
+*{margin:0;padding:0;box-sizing:border-box}
 
 body{
-    margin:0;
-    font-family:'Segoe UI', sans-serif;
-    background:#050505;
-    overflow:hidden;
+  font-family:Georgia,serif;
+  background:#050805;
+  color:white;
+  overflow:hidden;
 }
 
-/* ===============================
-   PANTALLA INICIAL
-================================ */
-
-#inicio{
-    position:fixed;
-    inset:0;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    flex-direction:column;
-    text-align:center;
-    padding:30px;
-
-    background:
-    radial-gradient(circle at center,#4b4000 0%,#171400 35%,#050505 75%);
-
-    color:white;
-    z-index:100;
-    cursor:pointer;
+/* ---------- PORTADA ---------- */
+#portada{
+  position:fixed;
+  inset:0;
+  z-index:100;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  text-align:center;
+  padding:25px;
+  background:
+    radial-gradient(circle at 50% 60%,#443900 0%,#161500 35%,#030503 75%);
 }
 
-.regalo{
-    font-size:70px;
-    animation:flotar 2s ease-in-out infinite;
+.caja{
+  max-width:700px;
+  animation:entrada 1.8s ease;
 }
 
-#inicio h1{
-    margin-top:15px;
-    color:#ffe34f;
-    font-size:clamp(35px,7vw,65px);
-
-    text-shadow:
-    0 0 10px #ffd900,
-    0 0 30px #ffd900;
+.pequeno{
+  color:#ffe76a;
+  letter-spacing:5px;
+  font-size:14px;
 }
 
-#inicio p{
-    margin-top:18px;
-    font-size:19px;
-    color:#fff7bd;
-    line-height:1.6;
+#portada h1{
+  margin-top:18px;
+  font-size:clamp(38px,8vw,75px);
+  color:#ffe13b;
+  text-shadow:0 0 15px #ffd900,0 0 45px #b99500;
 }
 
-.boton{
-    margin-top:30px;
-
-    padding:15px 35px;
-
-    background:#ffd900;
-    color:#171300;
-
-    border-radius:50px;
-
-    font-weight:bold;
-    font-size:18px;
-
-    box-shadow:
-    0 0 15px #ffd900,
-    0 0 40px #ffd90066;
-
-    animation:latido 1.5s infinite;
+#portada p{
+  margin-top:22px;
+  font-family:"Segoe UI",sans-serif;
+  line-height:1.7;
+  color:#fffbdc;
+  font-size:18px;
 }
 
-@keyframes latido{
-
-    0%,100%{
-        transform:scale(1);
-    }
-
-    50%{
-        transform:scale(1.08);
-    }
+button{
+  margin-top:35px;
+  padding:16px 35px;
+  border:1px solid #ffe43b;
+  border-radius:50px;
+  background:#ffe13b;
+  color:#171400;
+  font-size:17px;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 30px #ffd90088;
+  animation:pulso 1.6s infinite;
 }
 
-@keyframes flotar{
-
-    0%,100%{
-        transform:translateY(0);
-    }
-
-    50%{
-        transform:translateY(-12px);
-    }
+@keyframes pulso{
+  50%{transform:scale(1.07);box-shadow:0 0 50px #ffd900}
 }
 
-
-/* ===============================
-   SORPRESA
-================================ */
-
-#sorpresa{
-
-    display:none;
-
-    position:fixed;
-    inset:0;
-
-    overflow:hidden;
-
-    background:
-    radial-gradient(circle at top,#514600 0%,#181500 32%,#050505 75%);
+@keyframes entrada{
+  from{opacity:0;transform:translateY(30px)}
+  to{opacity:1;transform:translateY(0)}
 }
 
-
-/* ===============================
-   ESTRELLAS
-================================ */
-
-.estrella{
-
-    position:absolute;
-
-    width:4px;
-    height:4px;
-
-    background:#ffe75c;
-
-    border-radius:50%;
-
-    box-shadow:0 0 12px #ffd900;
-
-    animation:brillar 2s infinite alternate;
+/* ---------- ESCENA ---------- */
+#escena{
+  display:none;
+  position:fixed;
+  inset:0;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at 50% 100%,#304515 0%,#101807 25%,#040704 65%);
 }
 
-@keyframes brillar{
-
-    from{
-        opacity:.15;
-        transform:scale(.5);
-    }
-
-    to{
-        opacity:1;
-        transform:scale(1.8);
-    }
+/* LUCES */
+.luz{
+  position:absolute;
+  width:4px;
+  height:4px;
+  border-radius:50%;
+  background:#ffe95c;
+  box-shadow:0 0 12px #ffe95c,0 0 25px #ffd900;
+  animation:volar linear infinite;
 }
 
-
-/* ===============================
-   CONTENIDO
-================================ */
-
-.contenido{
-
-    position:relative;
-
-    z-index:20;
-
-    height:100%;
-
-    display:flex;
-
-    flex-direction:column;
-
-    justify-content:center;
-
-    align-items:center;
-
-    text-align:center;
-
-    padding:25px;
+@keyframes volar{
+  0%{transform:translate(0,30px);opacity:0}
+  20%{opacity:1}
+  50%{transform:translate(25px,-100px)}
+  100%{transform:translate(-15px,-230px);opacity:0}
 }
 
-.fecha{
-
-    color:#ffe55c;
-
-    letter-spacing:4px;
-
-    font-size:15px;
-
-    opacity:0;
-
-    animation:aparecer 1.5s forwards .5s;
+/* ---------- TEXTO ---------- */
+.mensaje{
+  position:absolute;
+  z-index:20;
+  top:5%;
+  width:100%;
+  padding:15px 20px;
+  text-align:center;
+  pointer-events:none;
 }
 
-.titulo{
-
-    color:#ffd900;
-
-    font-size:clamp(38px,7vw,70px);
-
-    margin-top:10px;
-
-    text-shadow:
-    0 0 10px #ffd900,
-    0 0 30px #ffbb00;
-
-    opacity:0;
-
-    animation:aparecer 1.5s forwards 1s;
+.mensaje .fecha{
+  color:#e9cf55;
+  letter-spacing:4px;
+  font-family:"Segoe UI",sans-serif;
+  font-size:13px;
+  opacity:0;
+  animation:mostrar 1s forwards .5s;
 }
 
-.nombres{
-
-    margin-top:7px;
-
-    font-size:clamp(25px,5vw,42px);
-
-    color:white;
-
-    font-weight:300;
-
-    letter-spacing:5px;
-
-    opacity:0;
-
-    animation:aparecer 1.5s forwards 1.7s;
+.mensaje h1{
+  color:#ffe54e;
+  margin-top:10px;
+  font-size:clamp(34px,6vw,60px);
+  text-shadow:0 0 18px #d9b900;
+  opacity:0;
+  animation:mostrar 1.4s forwards 1.2s;
 }
 
-
-/* ===============================
-   RAMO
-================================ */
-
-.ramo{
-
-    position:relative;
-
-    width:320px;
-
-    height:220px;
-
-    margin-top:10px;
-
-    opacity:0;
-
-    animation:ramoAparece 2s forwards 2s;
+.mensaje h2{
+  font-family:"Segoe UI",sans-serif;
+  letter-spacing:5px;
+  font-weight:300;
+  margin-top:4px;
+  font-size:clamp(21px,4vw,33px);
+  opacity:0;
+  animation:mostrar 1.4s forwards 2s;
 }
 
-@keyframes ramoAparece{
-
-    from{
-        opacity:0;
-        transform:translateY(100px) scale(.5);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0) scale(1);
-    }
+.texto{
+  max-width:700px;
+  margin:18px auto 0;
+  font-family:"Segoe UI",sans-serif;
+  font-size:clamp(15px,2.4vw,19px);
+  line-height:1.65;
+  color:#fffbe7;
+  opacity:0;
+  animation:mostrar 2s forwards 3s;
 }
 
+.texto strong{color:#ffe35b}
 
-/* TALLOS */
+.firma{
+  margin-top:12px;
+  color:#ffe35b;
+  font-style:italic;
+}
+
+@keyframes mostrar{
+  from{opacity:0;transform:translateY(18px)}
+  to{opacity:1;transform:translateY(0)}
+}
+
+/* ---------- JARDÍN ---------- */
+.jardin{
+  position:absolute;
+  z-index:8;
+  bottom:0;
+  left:0;
+  width:100%;
+  height:48%;
+}
+
+/* CADA PLANTA */
+.planta{
+  position:absolute;
+  bottom:-5px;
+  width:100px;
+  height:100%;
+  transform-origin:bottom center;
+}
 
 .tallo{
-
-    position:absolute;
-
-    width:5px;
-
-    height:140px;
-
-    background:
-    linear-gradient(#62a744,#245f27);
-
-    bottom:0;
-
-    left:158px;
-
-    border-radius:10px;
-
-    transform-origin:bottom;
+  position:absolute;
+  bottom:0;
+  left:48px;
+  width:5px;
+  height:0;
+  border-radius:8px;
+  background:linear-gradient(to right,#234c18,#5c8f32,#234c18);
+  animation:crecerTallo 2.2s ease-out forwards;
 }
 
-.t1{transform:rotate(-30deg);}
-.t2{transform:rotate(-18deg);}
-.t3{transform:rotate(-8deg);}
-.t4{transform:rotate(8deg);}
-.t5{transform:rotate(18deg);}
-.t6{transform:rotate(30deg);}
+@keyframes crecerTallo{
+  to{height:var(--alto)}
+}
 
+/* HOJAS */
+.hoja{
+  position:absolute;
+  width:40px;
+  height:20px;
+  background:linear-gradient(135deg,#6a9c39,#234c18);
+  border-radius:100% 0 100% 0;
+  opacity:0;
+}
 
-/* FLORES */
+.hoja.izq{
+  left:12px;
+  bottom:28%;
+  transform:rotate(25deg);
+  animation:hojaIzq .8s forwards;
+  animation-delay:var(--delay-hoja);
+}
 
+.hoja.der{
+  left:51px;
+  bottom:42%;
+  transform:scaleX(-1) rotate(25deg);
+  animation:hojaDer .8s forwards;
+  animation-delay:var(--delay-hoja);
+}
+
+@keyframes hojaIzq{
+  from{opacity:0;transform:scale(0) rotate(25deg)}
+  to{opacity:1;transform:scale(1) rotate(25deg)}
+}
+@keyframes hojaDer{
+  from{opacity:0;transform:scale(0) scaleX(-1) rotate(25deg)}
+  to{opacity:1;transform:scale(1) scaleX(-1) rotate(25deg)}
+}
+
+/* FLOR */
 .flor{
-
-    position:absolute;
-
-    font-size:60px;
-
-    filter:
-    drop-shadow(0 0 10px #ffd900)
-    drop-shadow(0 0 25px #ffbb00);
-
-    animation:moverFlor 3s ease-in-out infinite;
+  position:absolute;
+  left:50px;
+  bottom:var(--alto);
+  width:0;
+  height:0;
+  opacity:0;
+  animation:abrirFlor 1.3s ease-out forwards;
+  animation-delay:var(--delay-flor);
 }
 
-.f1{
-    left:125px;
-    top:0;
+@keyframes abrirFlor{
+  0%{opacity:0;transform:scale(0) rotate(-20deg)}
+  70%{opacity:1;transform:scale(1.15) rotate(3deg)}
+  100%{opacity:1;transform:scale(1)}
 }
-
-.f2{
-    left:60px;
-    top:35px;
-    animation-delay:.3s;
-}
-
-.f3{
-    left:190px;
-    top:35px;
-    animation-delay:.6s;
-}
-
-.f4{
-    left:90px;
-    top:90px;
-    animation-delay:.9s;
-}
-
-.f5{
-    left:160px;
-    top:85px;
-    animation-delay:1.2s;
-}
-
-.f6{
-    left:220px;
-    top:90px;
-    animation-delay:1.5s;
-}
-
-@keyframes moverFlor{
-
-    0%,100%{
-        transform:rotate(-4deg) translateY(0);
-    }
-
-    50%{
-        transform:rotate(4deg) translateY(-8px);
-    }
-}
-
-
-/* ===============================
-   MENSAJE
-================================ */
-
-.mensaje{
-
-    max-width:720px;
-
-    color:#fff9d9;
-
-    font-size:clamp(16px,2.5vw,20px);
-
-    line-height:1.65;
-
-    margin-top:5px;
-
-    opacity:0;
-
-    animation:aparecer 2s forwards 3.5s;
-}
-
-.destacado{
-
-    color:#ffe34d;
-
-    font-weight:bold;
-}
-
-.final{
-
-    margin-top:15px;
-
-    color:#ffd900;
-
-    font-size:19px;
-
-    font-style:italic;
-
-    opacity:0;
-
-    animation:aparecer 2s forwards 5s;
-}
-
-@keyframes aparecer{
-
-    from{
-        opacity:0;
-        transform:translateY(25px);
-    }
-
-    to{
-        opacity:1;
-        transform:translateY(0);
-    }
-}
-
-
-/* ===============================
-   FLORES QUE CAEN
-================================ */
 
 .petalo{
-
-    position:absolute;
-
-    top:-70px;
-
-    z-index:10;
-
-    pointer-events:none;
-
-    animation:caer linear forwards;
+  position:absolute;
+  width:22px;
+  height:45px;
+  left:-11px;
+  top:-40px;
+  border-radius:60% 60% 45% 45%;
+  transform-origin:50% 40px;
+  background:
+    radial-gradient(circle at 50% 25%,#fff59a 0%,#ffe331 35%,#f1b900 100%);
+  box-shadow:0 0 10px #ffd90066;
 }
 
-@keyframes caer{
+.p1{transform:rotate(0deg)}
+.p2{transform:rotate(45deg)}
+.p3{transform:rotate(90deg)}
+.p4{transform:rotate(135deg)}
+.p5{transform:rotate(180deg)}
+.p6{transform:rotate(225deg)}
+.p7{transform:rotate(270deg)}
+.p8{transform:rotate(315deg)}
 
-    0%{
-        transform:
-        translateY(-10vh)
-        rotate(0deg);
-    }
-
-    100%{
-        transform:
-        translateY(115vh)
-        rotate(720deg);
-
-        opacity:0;
-    }
+.centro{
+  position:absolute;
+  width:30px;
+  height:30px;
+  left:-15px;
+  top:-15px;
+  border-radius:50%;
+  background:radial-gradient(circle,#6b4615,#3d240b);
+  box-shadow:0 0 10px #ffc800;
+  z-index:4;
 }
 
-
-/* ===============================
-   CORAZONES
-================================ */
-
-.corazon{
-
-    position:absolute;
-
-    bottom:-30px;
-
-    color:#ffd900;
-
-    opacity:.7;
-
-    animation:subir linear forwards;
+/* PASTO */
+.pasto{
+  position:absolute;
+  bottom:-10px;
+  width:100%;
+  height:70px;
+  background:
+    repeating-linear-gradient(
+      75deg,
+      transparent 0 12px,
+      #263d16 13px 16px,
+      transparent 17px 25px
+    );
+  opacity:.8;
 }
 
-@keyframes subir{
-
-    to{
-
-        transform:
-        translateY(-110vh)
-        rotate(30deg);
-
-        opacity:0;
-    }
-}
-
-
-/* ===============================
-   CELULAR
-================================ */
-
+/* MÓVIL */
 @media(max-width:600px){
-
-    .contenido{
-        justify-content:center;
-        padding:15px;
-    }
-
-    .ramo{
-        transform:scale(.78);
-        margin-top:-5px;
-        margin-bottom:-15px;
-    }
-
-    .mensaje{
-        font-size:15px;
-        line-height:1.5;
-    }
-
-    .final{
-        font-size:16px;
-    }
-
+  .mensaje{top:3%}
+  .texto{line-height:1.45;font-size:14px;margin-top:10px}
+  .jardin{height:38%}
+  .mensaje h1{font-size:32px}
+  .mensaje h2{font-size:20px}
 }
-
 </style>
 </head>
 
-
 <body>
 
+<div id="portada">
+  <div class="caja">
+    <div class="pequeno">UN PEQUEÑO DETALLE 💛</div>
 
-<!-- PANTALLA INICIAL -->
-
-<div id="inicio" onclick="abrirSorpresa()">
-
-    <div class="regalo">
-        💛
-    </div>
-
-    <h1>
-        Tenemos algo para ustedes...
-    </h1>
+    <h1>Lisbeth & Wendy</h1>
 
     <p>
-        Quizás llegó un poquito tarde,<br>
-        pero fue preparado especialmente para dos personas increíbles.
+      Sé que llegó un poquito tarde...<br>
+      pero hay detalles que no deberían quedarse sin entregar.
     </p>
 
-    <div class="boton">
-        Toca aquí para abrir 🌻
-    </div>
-
+    <button onclick="abrirRegalo()">
+      Toca aquí, esto es para ustedes 💛
+    </button>
+  </div>
 </div>
 
+<div id="escena">
 
+  <div class="mensaje">
+    <div class="fecha">22 DE SEPTIEMBRE</div>
 
-<!-- SORPRESA -->
+    <h1>Flores amarillas para ustedes</h1>
 
-<div id="sorpresa">
+    <h2>LISBETH & WENDY</h2>
 
-<div class="contenido">
+    <div class="texto">
+      Sé que ya es <strong>22 de septiembre</strong>
+      y no sé si ayer recibieron flores amarillas...
+      <br><br>
 
-    <div class="fecha">
-        22 DE SEPTIEMBRE 💛
+      Pero quería recordarles algo:
+      son <strong>dos mujeres increíbles, valientes y guerreras.</strong>
+      🌻
+      <br><br>
+
+      Tal vez estas flores no puedan sostenerlas entre sus manos,
+      pero cada una de ellas fue hecha especialmente para ustedes.
+      <br><br>
+
+      Porque a veces un pequeño detalle es suficiente para recordarles
+      a personas especiales <strong>lo mucho que valen.</strong>
+
+      <div class="firma">
+        Con mucho cariño, estas flores son para ustedes. 💛
+      </div>
     </div>
+  </div>
 
-    <div class="titulo">
-        Flores amarillas
-    </div>
-
-    <div class="nombres">
-        LISBETH & WENDY
-    </div>
-
-
-    <div class="ramo">
-
-        <div class="tallo t1"></div>
-        <div class="tallo t2"></div>
-        <div class="tallo t3"></div>
-        <div class="tallo t4"></div>
-        <div class="tallo t5"></div>
-        <div class="tallo t6"></div>
-
-        <div class="flor f1">🌻</div>
-        <div class="flor f2">🌼</div>
-        <div class="flor f3">🌻</div>
-        <div class="flor f4">🌼</div>
-        <div class="flor f5">🌻</div>
-        <div class="flor f6">🌼</div>
-
-    </div>
-
-
-    <div class="mensaje">
-
-        Sé que ya es <span class="destacado">22 de septiembre</span>
-        y no sé si ayer recibieron flores amarillas...
-
-        <br><br>
-
-        Pero quería recordarles que son
-        <span class="destacado">
-        dos mujeres increíbles, valientes y guerreras.
-        </span>
-
-        <br><br>
-
-        Quizás estas flores no puedan sostenerlas entre sus manos,
-        pero cada una fue hecha especialmente para ustedes. 🌻
-
-        <br>
-
-        Porque nunca es tarde para hacerle saber a alguien
-        <span class="destacado">
-        lo especial que es. 💛
-        </span>
-
-    </div>
-
-
-    <div class="final">
-
-        Con mucho cariño,<br>
-
-        estas flores son especialmente para ustedes
-
-        <br>
-
-        <strong>
-        LISBETH & WENDY 💛🌻
-        </strong>
-
-    </div>
+  <div class="jardin" id="jardin">
+    <div class="pasto"></div>
+  </div>
 
 </div>
-
-</div>
-
-
 
 <script>
 
-/* ABRIR REGALO */
+function abrirRegalo(){
+  document.getElementById("portada").style.display="none";
+  document.getElementById("escena").style.display="block";
 
-function abrirSorpresa(){
-
-    document.getElementById("inicio").style.display="none";
-
-    document.getElementById("sorpresa").style.display="block";
-
-    crearEstrellas();
-
-    setInterval(crearPetalo,350);
-
-    setInterval(crearCorazon,900);
-
+  crearLuces();
+  crearJardin();
 }
 
+/* LUCIÉRNAGAS */
+function crearLuces(){
 
-/* ESTRELLAS */
+  const escena=document.getElementById("escena");
 
-function crearEstrellas(){
+  for(let i=0;i<45;i++){
 
-    for(let i=0;i<90;i++){
+    const luz=document.createElement("div");
+    luz.className="luz";
 
-        let estrella=document.createElement("div");
+    luz.style.left=Math.random()*100+"%";
+    luz.style.top=(30+Math.random()*70)+"%";
+    luz.style.animationDuration=(4+Math.random()*6)+"s";
+    luz.style.animationDelay=(Math.random()*5)+"s";
 
-        estrella.className="estrella";
-
-        estrella.style.left=
-        Math.random()*100+"%";
-
-        estrella.style.top=
-        Math.random()*100+"%";
-
-        estrella.style.animationDelay=
-        Math.random()*3+"s";
-
-        document.getElementById("sorpresa")
-        .appendChild(estrella);
-
-    }
-
+    escena.appendChild(luz);
+  }
 }
 
+/* CREA UNA FLOR COMPLETA */
+function crearFlor(x,alto,delay,escala){
 
-/* FLORES CAYENDO */
+  const planta=document.createElement("div");
+  planta.className="planta";
 
-function crearPetalo(){
+  planta.style.left=x+"%";
+  planta.style.transform=`translateX(-50%) scale(${escala})`;
 
-    let petalo=document.createElement("div");
+  planta.innerHTML=`
+    <div class="tallo"
+      style="
+        --alto:${alto}px;
+        animation-delay:${delay}s;
+      ">
+    </div>
 
-    petalo.className="petalo";
+    <div class="hoja izq"
+      style="--delay-hoja:${delay+1.3}s">
+    </div>
 
-    const elementos=[
-        "🌻",
-        "🌼",
-        "✨",
-        "💛"
-    ];
+    <div class="hoja der"
+      style="--delay-hoja:${delay+1.6}s">
+    </div>
 
-    petalo.innerHTML=
-    elementos[
-        Math.floor(
-            Math.random()*elementos.length
-        )
-    ];
+    <div class="flor"
+      style="
+        --alto:${alto}px;
+        --delay-flor:${delay+2}s;
+      ">
 
-    petalo.style.left=
-    Math.random()*100+"vw";
+      <div class="petalo p1"></div>
+      <div class="petalo p2"></div>
+      <div class="petalo p3"></div>
+      <div class="petalo p4"></div>
+      <div class="petalo p5"></div>
+      <div class="petalo p6"></div>
+      <div class="petalo p7"></div>
+      <div class="petalo p8"></div>
 
-    petalo.style.fontSize=
-    (15+Math.random()*20)+"px";
+      <div class="centro"></div>
+    </div>
+  `;
 
-    petalo.style.animationDuration=
-    (5+Math.random()*5)+"s";
-
-    document
-    .getElementById("sorpresa")
-    .appendChild(petalo);
-
-
-    setTimeout(()=>{
-
-        petalo.remove();
-
-    },10000);
-
+  document.getElementById("jardin").appendChild(planta);
 }
 
+/* JARDÍN */
+function crearJardin(){
 
-/* CORAZONES SUBIENDO */
+  crearFlor(8,150,.2,.75);
+  crearFlor(17,210,.5,.85);
+  crearFlor(27,165,.8,.70);
+  crearFlor(37,235,1.1,.95);
+  crearFlor(47,185,1.4,.80);
 
-function crearCorazon(){
-
-    let corazon=
-    document.createElement("div");
-
-    corazon.className="corazon";
-
-    corazon.innerHTML="💛";
-
-    corazon.style.left=
-    Math.random()*100+"vw";
-
-    corazon.style.fontSize=
-    (12+Math.random()*20)+"px";
-
-    corazon.style.animationDuration=
-    (5+Math.random()*4)+"s";
-
-    document
-    .getElementById("sorpresa")
-    .appendChild(corazon);
-
-
-    setTimeout(()=>{
-
-        corazon.remove();
-
-    },9000);
-
+  crearFlor(57,245,1.7,1);
+  crearFlor(67,180,2,.75);
+  crearFlor(77,225,2.3,.90);
+  crearFlor(87,165,2.6,.72);
+  crearFlor(95,205,2.9,.82);
 }
 
 </script>
