@@ -3,6 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Para ti ❤️</title>
 
 <style>
@@ -28,7 +29,7 @@ canvas{
 }
 
 /* =========================
-   PANTALLA INICIAL
+   PORTADA
 ========================= */
 
 #inicio{
@@ -45,61 +46,59 @@ canvas{
     padding:25px;
 
     background:
-    radial-gradient(circle at center,
-    #07182c 0%,
-    #020711 45%,
-    #000 75%);
+        radial-gradient(circle at center,
+        #06182c 0%,
+        #020811 42%,
+        #000 75%);
 
     transition:
-    opacity 1.5s ease,
-    transform 1.5s ease;
+        opacity 1s ease,
+        transform 1s ease;
 }
 
-#inicio .mini{
-    color:#55bfff;
-    letter-spacing:5px;
+.mini{
+    color:#61c5ff;
     font-size:13px;
-
-    text-shadow:
-    0 0 10px #008cff;
+    letter-spacing:5px;
+    text-shadow:0 0 12px #008cff;
 }
 
 #inicio h1{
-    margin-top:15px;
+    margin-top:18px;
 
-    color:#dff5ff;
+    color:#e9f8ff;
 
     font-size:clamp(38px,8vw,75px);
     font-weight:300;
 
     text-shadow:
-    0 0 8px white,
-    0 0 20px #168dff,
-    0 0 45px #0077ff;
+        0 0 8px #fff,
+        0 0 20px #168dff,
+        0 0 45px #006eff;
 
     animation:respirar 2s infinite alternate;
 }
 
 #inicio p{
+    max-width:500px;
+
     margin-top:20px;
 
-    color:#acdfff;
+    color:#b9e6ff;
 
     font-size:17px;
     line-height:1.7;
-
-    max-width:500px;
 }
 
 #inicio button{
     margin-top:35px;
 
-    padding:15px 35px;
+    padding:16px 38px;
 
-    border:1px solid #4fc3ff;
+    border:1px solid #54c6ff;
     border-radius:50px;
 
-    background:transparent;
+    background:rgba(0,130,255,.08);
 
     color:white;
 
@@ -108,26 +107,26 @@ canvas{
     cursor:pointer;
 
     box-shadow:
-    0 0 12px #008cff,
-    inset 0 0 12px #008cff;
+        0 0 15px #008cff,
+        inset 0 0 12px #008cff;
 
-    animation:pulso 1.5s infinite;
-}
-
-@keyframes pulso{
-    50%{
-        transform:scale(1.08);
-
-        box-shadow:
-        0 0 25px #008cff,
-        0 0 50px #006eff,
-        inset 0 0 15px #008cff;
-    }
+    animation:boton 1.5s infinite;
 }
 
 @keyframes respirar{
     from{opacity:.7}
     to{opacity:1}
+}
+
+@keyframes boton{
+    50%{
+        transform:scale(1.07);
+
+        box-shadow:
+            0 0 25px #008cff,
+            0 0 50px #006eff,
+            inset 0 0 15px #008cff;
+    }
 }
 
 
@@ -138,31 +137,34 @@ canvas{
 #love{
     position:fixed;
 
-    z-index:10;
+    top:5%;
+    left:0;
 
-    top:6%;
+    z-index:10;
 
     width:100%;
 
     text-align:center;
 
-    color:#9bdcff;
+    color:#a4ddff;
 
     font-family:"Brush Script MT",cursive;
 
-    font-size:clamp(40px,7vw,70px);
+    font-size:clamp(42px,7vw,72px);
 
     opacity:0;
 
     transform:translateY(-20px);
 
-    transition:2s;
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
 
     text-shadow:
-    0 0 5px #fff,
-    0 0 12px #00a2ff,
-    0 0 30px #0077ff,
-    0 0 60px #0055ff;
+        0 0 5px #fff,
+        0 0 15px #00a2ff,
+        0 0 35px #0077ff,
+        0 0 65px #0055ff;
 }
 
 #love.visible{
@@ -172,136 +174,115 @@ canvas{
 
 
 /* =========================
-   FRASE
+   DEDICATORIA
 ========================= */
 
-#frase{
+#mensaje{
     position:fixed;
 
-    z-index:10;
-
-    bottom:6%;
-
     left:50%;
+    bottom:5%;
+
+    z-index:10;
 
     width:90%;
     max-width:650px;
 
-    transform:
-    translateX(-50%)
-    translateY(30px);
-
     text-align:center;
 
-    color:#d8f3ff;
+    color:#daf3ff;
 
-    font-size:clamp(15px,2.5vw,19px);
-
-    line-height:1.7;
+    font-size:clamp(15px,2.4vw,19px);
+    line-height:1.65;
 
     opacity:0;
 
-    transition:2s;
+    transform:
+        translateX(-50%)
+        translateY(25px);
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
 
     text-shadow:
-    0 0 8px #008cff88;
+        0 0 8px rgba(0,140,255,.4);
 }
 
-#frase.visible{
+#mensaje.visible{
     opacity:1;
 
     transform:
-    translateX(-50%)
-    translateY(0);
+        translateX(-50%)
+        translateY(0);
 }
 
-#frase strong{
-    color:#68caff;
+#mensaje strong{
+    color:#6bcaff;
 
     text-shadow:
-    0 0 10px #008cff,
-    0 0 20px #006eff;
+        0 0 10px #008cff,
+        0 0 20px #006eff;
 }
 
 .firma{
     display:block;
 
-    margin-top:10px;
+    margin-top:12px;
 
-    color:#84d4ff;
+    color:#91d9ff;
 
     font-family:cursive;
-
     font-size:21px;
+
+    text-shadow:
+        0 0 12px #008cff;
 }
 
 
 /* =========================
-   TEXTO PEQUEÑO
+   CELULAR
 ========================= */
-
-#estado{
-    position:fixed;
-
-    z-index:9;
-
-    width:100%;
-
-    bottom:3%;
-
-    text-align:center;
-
-    color:#2187c5;
-
-    font-size:11px;
-
-    letter-spacing:4px;
-
-    opacity:0;
-}
-
-
-/* CELULAR */
 
 @media(max-width:600px){
 
     #love{
-        top:5%;
+        top:4%;
     }
 
-    #frase{
+    #mensaje{
         bottom:4%;
-        line-height:1.5;
         font-size:14px;
+        line-height:1.45;
     }
 
 }
-
 </style>
 </head>
+
 
 <body>
 
 <canvas id="canvas"></canvas>
 
 
-<!-- PANTALLA INICIAL -->
+<!-- PORTADA -->
 
 <div id="inicio">
 
     <div class="mini">
-        SOLO PARA TI ❤️
+        ❤️ SOLO PARA TI ❤️
     </div>
 
     <h1>
-        Tengo algo que decirte...
+        Tengo algo para ti...
     </h1>
 
     <p>
-        No sabía cómo expresarlo con palabras,
+        No sabía cómo decirlo,
         así que decidí hacer algo diferente.
         <br><br>
-        Esto es para ti.
+        Espero que te guste.
     </p>
 
     <button onclick="comenzar()">
@@ -311,23 +292,44 @@ canvas{
 </div>
 
 
-<!-- TEXTO -->
+<!-- I LOVE YOU -->
 
 <div id="love">
     I Love You
 </div>
 
 
-<div id="frase">
+<!-- MENSAJE -->
 
-    No sé qué nos depare el tiempo,
+<div id="mensaje">
+
+    No sé qué nos depare el tiempo...
+
+    <br><br>
 
     pero sí sé que quiero
 
     <strong>
-        seguir creando momentos contigo. ❤️
+        seguir creando momentos contigo.
     </strong>
-    
+
+    <br><br>
+
+    Me gusta tenerte en mi vida,
+    compartir contigo y conocerte
+    un poquito más cada día.
+
+    <br><br>
+
+    Y aunque a veces no encuentre
+    las palabras exactas para decirlo...
+
+    <br>
+
+    <strong>
+        me haces muy feliz. ❤️
+    </strong>
+
     <span class="firma">
         Gracias por aparecer en mi vida.
     </span>
@@ -337,43 +339,42 @@ canvas{
 
 <script>
 
-/* =========================================
+/* =========================
    CANVAS
-========================================= */
+========================= */
 
 const canvas =
-document.getElementById("canvas");
+    document.getElementById("canvas");
 
 const ctx =
-canvas.getContext("2d");
+    canvas.getContext("2d");
 
-let W;
-let H;
+let W = 0;
+let H = 0;
 
-let particulas=[];
+let estrellas = [];
+let particulas = [];
 
-let estrellas=[];
-
-let iniciado=false;
-
-let tiempo=0;
+let iniciado = false;
+let tiempo = 0;
 
 
-/* =========================================
+/* =========================
    AJUSTAR PANTALLA
-========================================= */
+========================= */
 
 function resize(){
 
-    W=canvas.width=
-    window.innerWidth;
+    W = canvas.width =
+        window.innerWidth;
 
-    H=canvas.height=
-    window.innerHeight;
+    H = canvas.height =
+        window.innerHeight;
+
+    crearEstrellas();
 
     if(iniciado){
         crearCorazon();
-        crearEstrellas();
     }
 }
 
@@ -382,41 +383,41 @@ window.addEventListener(
     resize
 );
 
-resize();
 
-
-/* =========================================
+/* =========================
    ESTRELLAS
-========================================= */
+========================= */
 
 class Estrella{
 
     constructor(){
 
-        this.x=Math.random()*W;
+        this.x =
+            Math.random() * W;
 
-        this.y=Math.random()*H;
+        this.y =
+            Math.random() * H;
 
-        this.r=
-        Math.random()*1.5+.2;
+        this.radio =
+            Math.random() * 1.4 + .2;
 
-        this.alpha=
-        Math.random();
+        this.alpha =
+            Math.random();
 
-        this.vel=
-        Math.random()*.02+.005;
-
+        this.cambio =
+            Math.random() * .015 + .005;
     }
 
     update(){
 
-        this.alpha+=this.vel;
+        this.alpha +=
+            this.cambio;
 
         if(
-            this.alpha>1 ||
-            this.alpha<.1
+            this.alpha >= 1 ||
+            this.alpha <= .15
         ){
-            this.vel*=-1;
+            this.cambio *= -1;
         }
     }
 
@@ -427,13 +428,13 @@ class Estrella{
         ctx.arc(
             this.x,
             this.y,
-            this.r,
+            this.radio,
             0,
-            Math.PI*2
+            Math.PI * 2
         );
 
-        ctx.fillStyle=
-        `rgba(70,170,255,${this.alpha})`;
+        ctx.fillStyle =
+            `rgba(80,180,255,${this.alpha})`;
 
         ctx.fill();
     }
@@ -442,91 +443,93 @@ class Estrella{
 
 function crearEstrellas(){
 
-    estrellas=[];
+    estrellas = [];
 
-    for(let i=0;i<120;i++){
+    const cantidad =
+        W < 600 ? 80 : 130;
+
+    for(
+        let i = 0;
+        i < cantidad;
+        i++
+    ){
 
         estrellas.push(
             new Estrella()
         );
-
     }
 }
 
 
-/* =========================================
-   PARTÍCULA DEL CORAZÓN
-========================================= */
+/* =========================
+   PARTÍCULAS DEL CORAZÓN
+========================= */
 
 class Particula{
 
     constructor(tx,ty){
 
         /*
-        Empieza en una posición
-        aleatoria alrededor de la pantalla
+        Las partículas comienzan
+        dispersas por toda la pantalla.
         */
 
-        this.x=
-        Math.random()*W;
+        this.x =
+            Math.random() * W;
 
-        this.y=
-        Math.random()*H;
+        this.y =
+            Math.random() * H;
 
+        /*
+        Posición final.
+        */
 
-        this.tx=tx;
-        this.ty=ty;
+        this.tx = tx;
+        this.ty = ty;
 
+        /*
+        VELOCIDAD ALTA:
+        esto hace que el corazón
+        se forme rápidamente.
+        */
 
-        this.velocidad=
-        .045+
-        Math.random()*.045;
+        this.velocidad =
+            .055 +
+            Math.random() * .055;
 
+        this.radio =
+            Math.random() * 1.6 + .4;
 
-        this.radio=
-        Math.random()*1.7+.4;
-
-
-        this.alpha=
-        Math.random()*.7+.3;
-
-
-        this.offset=
-        Math.random()*Math.PI*2;
-
+        this.alpha =
+            Math.random() * .65 + .35;
     }
 
 
     update(latido){
 
-        /*
-        Objetivo con pequeño latido
-        */
+        const centroX =
+            W / 2;
 
-        const cx=W/2;
+        const centroY =
+            H * .43;
 
-        const cy=H*.43;
+        const objetivoX =
+            centroX +
+            (this.tx - centroX)
+            * latido;
 
+        const objetivoY =
+            centroY +
+            (this.ty - centroY)
+            * latido;
 
-        const objetivoX=
-        cx+
-        (this.tx-cx)*latido;
+        this.x +=
+            (objetivoX - this.x)
+            * this.velocidad;
 
-
-        const objetivoY=
-        cy+
-        (this.ty-cy)*latido;
-
-
-        this.x+=
-        (objetivoX-this.x)
-        *this.velocidad;
-
-
-        this.y+=
-        (objetivoY-this.y)
-        *this.velocidad;
-
+        this.y +=
+            (objetivoY - this.y)
+            * this.velocidad;
     }
 
 
@@ -539,332 +542,300 @@ class Particula{
             this.y,
             this.radio,
             0,
-            Math.PI*2
+            Math.PI * 2
         );
 
+        ctx.fillStyle =
+            `rgba(
+                ${70 + Math.random()*35},
+                ${165 + Math.random()*60},
+                255,
+                ${this.alpha}
+            )`;
 
-        ctx.fillStyle=
-        `rgba(
-        ${60+Math.random()*40},
-        ${150+Math.random()*80},
-        255,
-        ${this.alpha}
-        )`;
+        ctx.shadowBlur = 13;
 
-
-        ctx.shadowBlur=12;
-
-        ctx.shadowColor=
-        "#008cff";
-
+        ctx.shadowColor =
+            "#008cff";
 
         ctx.fill();
-
     }
-
 }
 
 
-/* =========================================
+/* =========================
    CREAR CORAZÓN
-========================================= */
+========================= */
 
 function crearCorazon(){
 
-    particulas=[];
+    particulas = [];
 
+    const cantidad =
+        W < 600
+        ? 1400
+        : 2300;
 
-    const cantidad=
-    W<600
-    ? 1500
-    : 2500;
-
-
-    const escala=
-    Math.min(W,H)
-    *
-    (W<600
-    ? .0165
-    : .020);
-
-
-    const centroX=W/2;
-
-    /*
-    Lo colocamos un poco arriba
-    para dejar espacio al texto
-    */
-
-    const centroY=H*.43;
-
-
-    for(let i=0;i<cantidad;i++){
-
-        const t=
-        Math.random()
-        *Math.PI*2;
-
-
-        /*
-        Fórmula matemática
-        del corazón
-        */
-
-        let x=
-        16*
-        Math.pow(
-            Math.sin(t),
-            3
+    const escala =
+        Math.min(W,H) *
+        (
+            W < 600
+            ? .016
+            : .020
         );
 
+    const centroX =
+        W / 2;
 
-        let y=
-
-        13*Math.cos(t)
-
-        -5*Math.cos(2*t)
-
-        -2*Math.cos(3*t)
-
-        -Math.cos(4*t);
+    const centroY =
+        H * .43;
 
 
-        /*
-        Esto llena también
-        el interior del corazón
-        */
+    for(
+        let i = 0;
+        i < cantidad;
+        i++
+    ){
 
-        const interior=
-        Math.sqrt(
+        const t =
             Math.random()
-        );
+            * Math.PI * 2;
 
 
-        x*=interior;
+        /*
+        Fórmula del corazón
+        */
 
-        y*=interior;
+        let x =
+            16 *
+            Math.pow(
+                Math.sin(t),
+                3
+            );
+
+        let y =
+            13 * Math.cos(t)
+            - 5 * Math.cos(2*t)
+            - 2 * Math.cos(3*t)
+            - Math.cos(4*t);
 
 
-        const tx=
-        centroX+
-        x*escala;
+        /*
+        Llena el interior
+        del corazón.
+        */
+
+        const interior =
+            Math.sqrt(
+                Math.random()
+            );
+
+        x *= interior;
+        y *= interior;
 
 
-        const ty=
-        centroY-
-        y*escala;
+        const finalX =
+            centroX +
+            x * escala;
+
+        const finalY =
+            centroY -
+            y * escala;
 
 
         particulas.push(
 
             new Particula(
-                tx,
-                ty
+                finalX,
+                finalY
             )
 
         );
-
     }
-
 }
 
 
-/* =========================================
+/* =========================
    ARO DE ENERGÍA
-========================================= */
+========================= */
 
 function dibujarAro(){
 
-    const cx=W/2;
+    const centroX =
+        W / 2;
 
-    const cy=
-    H*.43+
-    Math.min(W,H)*.20;
+    const centroY =
+        H * .43 +
+        Math.min(W,H) * .20;
 
-
-    /*
-    ARO PRINCIPAL
-    */
 
     ctx.save();
 
 
-    ctx.beginPath();
-
-    ctx.ellipse(
-        cx,
-        cy,
-        Math.min(W,H)*.15,
-        Math.min(W,H)*.025,
-        0,
-        0,
-        Math.PI*2
-    );
-
-
-    ctx.strokeStyle=
-    "rgba(60,180,255,.65)";
-
-
-    ctx.lineWidth=2;
-
-
-    ctx.shadowBlur=25;
-
-    ctx.shadowColor=
-    "#00a2ff";
-
-
-    ctx.stroke();
-
-
     /*
-    SEGUNDO ARO
+    RESPLANDOR CENTRAL
     */
 
-    ctx.beginPath();
-
-    ctx.ellipse(
-        cx,
-        cy,
-        Math.min(W,H)*.11,
-        Math.min(W,H)*.017,
-        0,
-        0,
-        Math.PI*2
-    );
-
-
-    ctx.strokeStyle=
-    "rgba(180,230,255,.8)";
-
-
-    ctx.lineWidth=1;
-
-    ctx.stroke();
-
-
-    /*
-    LUZ CENTRAL
-    */
-
-    const gradiente=
-    ctx.createRadialGradient(
-        cx,
-        cy,
-        0,
-        cx,
-        cy,
-        Math.min(W,H)*.16
-    );
-
+    const gradiente =
+        ctx.createRadialGradient(
+            centroX,
+            centroY,
+            0,
+            centroX,
+            centroY,
+            Math.min(W,H) * .18
+        );
 
     gradiente.addColorStop(
         0,
-        "rgba(130,220,255,.45)"
+        "rgba(120,220,255,.38)"
     );
-
 
     gradiente.addColorStop(
         .35,
-        "rgba(0,130,255,.18)"
+        "rgba(0,130,255,.15)"
     );
-
 
     gradiente.addColorStop(
         1,
         "rgba(0,0,0,0)"
     );
 
-
-    ctx.fillStyle=
-    gradiente;
-
+    ctx.fillStyle =
+        gradiente;
 
     ctx.beginPath();
 
     ctx.ellipse(
-        cx,
-        cy,
-        Math.min(W,H)*.17,
-        Math.min(W,H)*.06,
+        centroX,
+        centroY,
+        Math.min(W,H) * .18,
+        Math.min(W,H) * .055,
         0,
         0,
-        Math.PI*2
+        Math.PI * 2
     );
 
-
     ctx.fill();
+
+
+    /*
+    ARO EXTERIOR
+    */
+
+    ctx.beginPath();
+
+    ctx.ellipse(
+        centroX,
+        centroY,
+        Math.min(W,H) * .15,
+        Math.min(W,H) * .025,
+        0,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.strokeStyle =
+        "rgba(70,190,255,.70)";
+
+    ctx.lineWidth = 2;
+
+    ctx.shadowBlur = 25;
+
+    ctx.shadowColor =
+        "#00a2ff";
+
+    ctx.stroke();
+
+
+    /*
+    ARO INTERIOR
+    */
+
+    ctx.beginPath();
+
+    ctx.ellipse(
+        centroX,
+        centroY,
+        Math.min(W,H) * .105,
+        Math.min(W,H) * .016,
+        0,
+        0,
+        Math.PI * 2
+    );
+
+    ctx.strokeStyle =
+        "rgba(190,235,255,.8)";
+
+    ctx.lineWidth = 1;
+
+    ctx.stroke();
+
 
     ctx.restore();
 
 
     /*
-    CHISPAS ALREDEDOR
+    CHISPAS
     */
 
-    for(let i=0;i<18;i++){
+    for(
+        let i = 0;
+        i < 12;
+        i++
+    ){
 
-        const angulo=
-        Math.random()
-        *Math.PI*2;
+        const angulo =
+            Math.random()
+            * Math.PI * 2;
 
+        const distancia =
+            Math.min(W,H) *
+            (
+                .10 +
+                Math.random() * .07
+            );
 
-        const radio=
-        Math.min(W,H)
-        *
-        (
-            .10+
-            Math.random()*.07
-        );
+        const x =
+            centroX +
+            Math.cos(angulo)
+            * distancia;
 
-
-        const x=
-        cx+
-        Math.cos(angulo)
-        *radio;
-
-
-        const y=
-        cy+
-        Math.sin(angulo)
-        *radio*.15;
-
+        const y =
+            centroY +
+            Math.sin(angulo)
+            * distancia * .15;
 
         ctx.beginPath();
 
         ctx.arc(
             x,
             y,
-            Math.random()*1.4,
+            Math.random() * 1.3,
             0,
-            Math.PI*2
+            Math.PI * 2
         );
 
-
-        ctx.fillStyle=
-        "rgba(90,190,255,.7)";
-
+        ctx.fillStyle =
+            "rgba(100,200,255,.75)";
 
         ctx.fill();
-
     }
-
 }
 
 
-/* =========================================
+/* =========================
    ANIMACIÓN
-========================================= */
+========================= */
 
 function animar(){
 
     /*
-    Deja una pequeña estela
+    Fondo con pequeña estela.
     */
 
-    ctx.fillStyle=
-    "rgba(0,0,0,.23)";
+    ctx.fillStyle =
+        "rgba(0,0,0,.25)";
 
     ctx.fillRect(
         0,
@@ -874,117 +845,138 @@ function animar(){
     );
 
 
-    estrellas.forEach(
-        e=>{
+    /*
+    Estrellas.
+    */
 
-            e.update();
-            e.draw();
+    estrellas.forEach(
+        estrella => {
+
+            estrella.update();
+            estrella.draw();
 
         }
     );
 
 
+    /*
+    Corazón.
+    */
+
     if(iniciado){
 
-        tiempo+=.035;
+        tiempo += .04;
 
-
-        /*
-        Latido suave
-        */
-
-        const latido=
-        1+
-        Math.sin(tiempo)
-        *.025;
-
+        const latido =
+            1 +
+            Math.sin(tiempo)
+            * .025;
 
         particulas.forEach(
-            p=>{
+            particula => {
 
-                p.update(latido);
+                particula.update(
+                    latido
+                );
 
-                p.draw();
+                particula.draw();
 
             }
         );
 
-
         dibujarAro();
-
     }
 
 
     requestAnimationFrame(
         animar
     );
-
 }
 
 
-crearEstrellas();
-
-animar();
-
-
-/* =========================================
-   INICIAR
-========================================= */
+/* =========================
+   INICIAR SORPRESA
+========================= */
 
 function comenzar(){
 
-    iniciado=true;
+    if(iniciado){
+        return;
+    }
 
+    iniciado = true;
 
     crearCorazon();
 
 
-    const inicio=
-    document.getElementById(
-        "inicio"
+    const inicio =
+        document.getElementById(
+            "inicio"
+        );
+
+
+    /*
+    Quita portada.
+    */
+
+    inicio.style.opacity = "0";
+
+    inicio.style.transform =
+        "scale(1.08)";
+
+
+    setTimeout(
+        () => {
+
+            inicio.style.display =
+                "none";
+
+        },
+        900
     );
-
-
-    inicio.style.opacity="0";
-
-    inicio.style.transform=
-    "scale(1.1)";
-
-
-    setTimeout(()=>{
-
-        inicio.style.display=
-        "none";
-
-    },1400);
 
 
     /*
     I LOVE YOU
     */
 
-    setTimeout(()=>{
+    setTimeout(
+        () => {
 
-        document
-        .getElementById("love")
-        .classList.add("visible");
+            document
+                .getElementById("love")
+                .classList
+                .add("visible");
 
-    },1800);
+        },
+        1200
+    );
 
 
     /*
-    DEDICATORIA
+    MENSAJE
     */
 
-    setTimeout(()=>{
+    setTimeout(
+        () => {
 
-        document
-        .getElementById("frase")
-        .classList.add("visible");
+            document
+                .getElementById("mensaje")
+                .classList
+                .add("visible");
 
-    },6500);
-
+        },
+        4000
+    );
 }
+
+
+/* =========================
+   INICIO
+========================= */
+
+resize();
+animar();
 
 </script>
 
