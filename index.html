@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Una sorpresa para ti 💛</title>
+
+<style>
+*{
+  margin:0;
+  padding:0;
+  box-sizing:border-box;
+}
+
+body{
+  font-family: "Segoe UI", sans-serif;
+  overflow:hidden;
+  background:#080808;
+}
+
+/* PANTALLA INICIAL */
+#inicio{
+  width:100%;
+  height:100vh;
+  display:flex;
+  flex-direction:column;
+  justify-content:center;
+  align-items:center;
+  text-align:center;
+  color:white;
+  background:
+    radial-gradient(circle at center, #403500 0%, #171400 35%, #050505 75%);
+  cursor:pointer;
+  padding:30px;
+  transition:1s;
+}
+
+#inicio h1{
+  font-size:clamp(35px,8vw,70px);
+  color:#ffd700;
+  text-shadow:0 0 15px #ffd700;
+  animation:latido 1.8s infinite;
+}
+
+#inicio p{
+  margin-top:20px;
+  font-size:20px;
+  color:#fff4a3;
+}
+
+.boton{
+  margin-top:35px;
+  padding:15px 35px;
+  border:2px solid #ffd700;
+  border-radius:40px;
+  color:#111;
+  background:#ffd700;
+  font-size:18px;
+  font-weight:bold;
+  box-shadow:0 0 25px #ffd70080;
+  animation:latido 1.5s infinite;
+}
+
+@keyframes latido{
+  0%,100%{transform:scale(1);}
+  50%{transform:scale(1.07);}
+}
+
+/* SORPRESA */
+#sorpresa{
+  display:none;
+  position:relative;
+  width:100%;
+  height:100vh;
+  overflow:hidden;
+  background:
+    radial-gradient(circle at top, #403600 0%, #151200 38%, #050505 80%);
+  color:white;
+  text-align:center;
+}
+
+.contenido{
+  position:relative;
+  z-index:10;
+  height:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+}
+
+.fecha{
+  color:#ffd700;
+  letter-spacing:3px;
+  font-size:18px;
+  margin-bottom:10px;
+}
+
+.contenido h1{
+  font-size:clamp(35px,7vw,65px);
+  color:#ffd700;
+  text-shadow:
+    0 0 10px #ffd700,
+    0 0 30px #ffb700;
+}
+
+.mensaje{
+  max-width:600px;
+  margin-top:25px;
+  font-size:clamp(17px,3vw,22px);
+  line-height:1.7;
+  color:#fff9d7;
+}
+
+.firma{
+  margin-top:20px;
+  color:#ffd700;
+  font-size:20px;
+  font-style:italic;
+}
+
+/* RAMO */
+.ramo{
+  height:250px;
+  width:300px;
+  position:relative;
+  margin-top:20px;
+}
+
+.flor{
+  position:absolute;
+  font-size:55px;
+  filter:drop-shadow(0 0 12px #ffd700);
+  animation:flotar 3s ease-in-out infinite;
+}
+
+.f1{left:110px;top:0;}
+.f2{left:45px;top:45px;animation-delay:.3s;}
+.f3{left:175px;top:45px;animation-delay:.6s;}
+.f4{left:80px;top:100px;animation-delay:.9s;}
+.f5{left:145px;top:105px;animation-delay:1.2s;}
+
+@keyframes flotar{
+  0%,100%{transform:translateY(0) rotate(-3deg);}
+  50%{transform:translateY(-12px) rotate(3deg);}
+}
+
+/* TALLOS */
+.tallo{
+  position:absolute;
+  width:5px;
+  height:130px;
+  background:#368b3a;
+  bottom:0;
+  left:148px;
+  transform-origin:bottom;
+  border-radius:5px;
+}
+
+.t1{transform:rotate(-25deg);}
+.t2{transform:rotate(-12deg);}
+.t3{transform:rotate(0deg);}
+.t4{transform:rotate(15deg);}
+.t5{transform:rotate(27deg);}
+
+/* PARTÍCULAS */
+.particula{
+  position:absolute;
+  top:-50px;
+  z-index:2;
+  animation:caer linear forwards;
+  pointer-events:none;
+}
+
+@keyframes caer{
+  to{
+    transform:translateY(115vh) rotate(360deg);
+    opacity:0;
+  }
+}
+
+/* ESTRELLITAS */
+.estrella{
+  position:absolute;
+  width:3px;
+  height:3px;
+  background:#ffd700;
+  border-radius:50%;
+  box-shadow:0 0 10px #ffd700;
+  animation:brillar 2s infinite alternate;
+}
+
+@keyframes brillar{
+  from{opacity:.1;transform:scale(.5);}
+  to{opacity:1;transform:scale(1.8);}
+}
+
+@media(max-width:600px){
+  .ramo{
+    transform:scale(.85);
+    margin-top:5px;
+  }
+
+  .mensaje{
+    line-height:1.5;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<div id="inicio" onclick="abrirSorpresa()">
+  <div>✨ 💛 ✨</div>
+
+  <h1>Tengo algo para ti...</h1>
+
+  <p>
+    Hay detalles que no necesitan una ocasión especial.<br>
+    Solo necesitan una persona especial.
+  </p>
+
+  <div class="boton">
+    Toca aquí 💛
+  </div>
+</div>
+
+
+<div id="sorpresa">
+
+  <div class="contenido">
+
+    <div class="fecha">
+      21 DE SEPTIEMBRE 💛
+    </div>
+
+    <h1>
+      Flores amarillas para ti
+    </h1>
+
+    <div class="ramo">
+
+      <div class="tallo t1"></div>
+      <div class="tallo t2"></div>
+      <div class="tallo t3"></div>
+      <div class="tallo t4"></div>
+      <div class="tallo t5"></div>
+
+      <div class="flor f1">🌻</div>
+      <div class="flor f2">🌼</div>
+      <div class="flor f3">🌻</div>
+      <div class="flor f4">🌼</div>
+      <div class="flor f5">🌻</div>
+
+    </div>
+
+    <div class="mensaje">
+      Hoy no quería que fueras solo una espectadora
+      viendo cómo los demás reciben sus flores amarillas. 💛
+      <br><br>
+
+      Tú también mereces recibirlas.
+      Tal vez estas no puedas sostenerlas entre tus manos,
+      pero llevan algo mucho más importante:
+      <strong>todo mi cariño para ti.</strong>
+      <br><br>
+
+      Gracias por aparecer en mi vida
+      y por hacer mis días un poquito más bonitos. 🌻
+    </div>
+
+    <div class="firma">
+      Con mucho cariño, para ti 💛
+    </div>
+
+  </div>
+
+</div>
+
+
+<script>
+
+function abrirSorpresa(){
+
+  document.getElementById("inicio").style.display="none";
+  document.getElementById("sorpresa").style.display="block";
+
+  crearEstrellas();
+
+  setInterval(crearParticula,300);
+}
+
+
+/* FLORES Y CORAZONES QUE CAEN */
+
+function crearParticula(){
+
+  const p=document.createElement("div");
+
+  p.className="particula";
+
+  const cosas=["🌻","🌼","💛","✨"];
+
+  p.innerHTML=cosas[Math.floor(Math.random()*cosas.length)];
+
+  p.style.left=Math.random()*100+"vw";
+
+  p.style.fontSize=(15+Math.random()*25)+"px";
+
+  p.style.animationDuration=(4+Math.random()*5)+"s";
+
+  document.getElementById("sorpresa").appendChild(p);
+
+  setTimeout(()=>{
+    p.remove();
+  },9000);
+
+}
+
+
+/* ESTRELLAS DEL FONDO */
+
+function crearEstrellas(){
+
+  for(let i=0;i<70;i++){
+
+    const estrella=document.createElement("div");
+
+    estrella.className="estrella";
+
+    estrella.style.left=Math.random()*100+"%";
+    estrella.style.top=Math.random()*100+"%";
+
+    estrella.style.animationDelay=
+      Math.random()*3+"s";
+
+    document.getElementById("sorpresa")
+      .appendChild(estrella);
+
+  }
+
+}
+
+</script>
+
+</body>
+</html>
