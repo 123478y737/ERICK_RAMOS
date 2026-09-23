@@ -1,0 +1,1026 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Algo que necesito decirte...</title>
+
+<style>
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+html,body{
+    width:100%;
+    min-height:100%;
+    background:#050305;
+    font-family:"Segoe UI",sans-serif;
+    color:white;
+}
+
+body{
+    overflow-x:hidden;
+}
+
+/* =========================
+   FONDO
+========================= */
+
+#fondo{
+    position:fixed;
+    inset:0;
+    z-index:0;
+
+    background:
+        radial-gradient(
+            circle at 50% 45%,
+            rgba(100,20,35,.20),
+            transparent 32%
+        ),
+        radial-gradient(
+            circle at 50% 100%,
+            rgba(80,10,25,.20),
+            transparent 45%
+        ),
+        linear-gradient(
+            180deg,
+            #020203,
+            #080407 55%,
+            #030203
+        );
+}
+
+
+/* =========================
+   LUZ CENTRAL
+========================= */
+
+.luz{
+    position:fixed;
+
+    width:450px;
+    height:450px;
+
+    left:50%;
+    top:50%;
+
+    transform:
+        translate(-50%,-50%);
+
+    border-radius:50%;
+
+    background:
+        radial-gradient(
+            circle,
+            rgba(150,35,55,.12),
+            rgba(80,10,30,.05) 45%,
+            transparent 70%
+        );
+
+    filter:blur(25px);
+
+    z-index:1;
+
+    animation:
+        respirarLuz 5s
+        ease-in-out infinite;
+}
+
+@keyframes respirarLuz{
+
+    0%,100%{
+        opacity:.45;
+        transform:
+            translate(-50%,-50%)
+            scale(.9);
+    }
+
+    50%{
+        opacity:1;
+        transform:
+            translate(-50%,-50%)
+            scale(1.12);
+    }
+}
+
+
+/* =========================
+   LLUVIA
+========================= */
+
+#lluvia{
+    position:fixed;
+    inset:0;
+
+    z-index:2;
+
+    pointer-events:none;
+    overflow:hidden;
+
+    opacity:0;
+
+    transition:opacity 2s ease;
+}
+
+#lluvia.visible{
+    opacity:.45;
+}
+
+.gota{
+    position:absolute;
+
+    top:-100px;
+
+    width:1px;
+
+    background:
+        linear-gradient(
+            transparent,
+            rgba(210,220,230,.35)
+        );
+
+    animation:
+        caer linear infinite;
+}
+
+@keyframes caer{
+
+    from{
+        transform:
+            translateY(-100px);
+    }
+
+    to{
+        transform:
+            translateY(120vh);
+    }
+}
+
+
+/* =========================
+   PORTADA
+========================= */
+
+#inicio{
+
+    position:fixed;
+    inset:0;
+
+    z-index:20;
+
+    display:flex;
+    flex-direction:column;
+
+    justify-content:center;
+    align-items:center;
+
+    padding:30px;
+
+    text-align:center;
+
+    background:
+        radial-gradient(
+            circle at center,
+            rgba(90,15,30,.20),
+            #050305 60%,
+            #000
+        );
+
+    transition:
+        opacity 1.5s ease,
+        transform 1.5s ease;
+}
+
+
+#inicio .pequeno{
+
+    color:#a76d78;
+
+    font-size:12px;
+
+    letter-spacing:5px;
+
+    margin-bottom:20px;
+}
+
+
+#inicio h1{
+
+    max-width:700px;
+
+    font-family:Georgia,serif;
+
+    font-weight:400;
+
+    font-size:
+        clamp(35px,7vw,65px);
+
+    color:#f1e8ea;
+
+    text-shadow:
+        0 0 20px
+        rgba(160,60,80,.30);
+}
+
+
+#inicio p{
+
+    max-width:500px;
+
+    margin-top:25px;
+
+    color:#b9aeb1;
+
+    font-size:16px;
+
+    line-height:1.8;
+}
+
+
+#inicio button{
+
+    margin-top:35px;
+
+    padding:
+        14px 35px;
+
+    border:
+        1px solid
+        rgba(190,100,120,.50);
+
+    border-radius:50px;
+
+    background:
+        rgba(90,20,35,.12);
+
+    color:#eadde0;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    box-shadow:
+        0 0 20px
+        rgba(130,30,55,.20);
+
+    transition:.4s;
+
+    animation:
+        botonLatido 2.5s
+        infinite;
+}
+
+
+#inicio button:hover{
+
+    background:
+        rgba(120,30,50,.25);
+
+    box-shadow:
+        0 0 30px
+        rgba(170,40,70,.35);
+}
+
+
+@keyframes botonLatido{
+
+    50%{
+        transform:scale(1.04);
+    }
+
+}
+
+
+/* =========================
+   CARTA
+========================= */
+
+#carta{
+
+    position:relative;
+
+    z-index:10;
+
+    width:100%;
+
+    min-height:100vh;
+
+    display:none;
+
+    justify-content:center;
+
+    padding:
+        70px 20px
+        100px;
+}
+
+
+.contenido{
+
+    width:100%;
+
+    max-width:680px;
+
+    text-align:center;
+}
+
+
+/* CORAZÓN ROTO */
+
+.corazon{
+
+    font-size:45px;
+
+    margin-bottom:25px;
+
+    opacity:0;
+
+    transform:scale(.6);
+
+    transition:
+        opacity 2s ease,
+        transform 2s ease;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(180,50,75,.35)
+        );
+}
+
+
+.corazon.visible{
+
+    opacity:1;
+
+    transform:scale(1);
+}
+
+
+/* TÍTULO */
+
+#titulo{
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-weight:400;
+
+    font-size:
+        clamp(28px,6vw,45px);
+
+    color:#eee5e7;
+
+    margin-bottom:45px;
+
+    opacity:0;
+
+    transform:
+        translateY(15px);
+
+    transition:
+        2s ease;
+}
+
+
+#titulo.visible{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+}
+
+
+/* =========================
+   PÁRRAFOS
+========================= */
+
+.parrafo{
+
+    opacity:0;
+
+    transform:
+        translateY(25px);
+
+    margin-bottom:30px;
+
+    color:#c8bdc0;
+
+    font-size:
+        clamp(16px,2.5vw,19px);
+
+    line-height:1.9;
+
+    transition:
+        opacity 1.8s ease,
+        transform 1.8s ease;
+}
+
+
+.parrafo.visible{
+
+    opacity:1;
+
+    transform:
+        translateY(0);
+}
+
+
+.parrafo strong{
+
+    color:#ead6da;
+
+    font-weight:500;
+}
+
+
+/* FRASE IMPORTANTE */
+
+.importante{
+
+    margin:
+        45px auto;
+
+    padding:
+        25px 15px;
+
+    border-top:
+        1px solid
+        rgba(180,80,100,.18);
+
+    border-bottom:
+        1px solid
+        rgba(180,80,100,.18);
+
+    color:#e1c5cb;
+
+    font-family:
+        Georgia,
+        serif;
+
+    font-style:italic;
+
+    font-size:
+        clamp(19px,3vw,24px);
+
+    line-height:1.8;
+}
+
+
+/* FINAL */
+
+.final{
+
+    margin-top:50px;
+
+    font-family:
+        "Brush Script MT",
+        cursive;
+
+    font-size:
+        clamp(28px,5vw,38px);
+
+    color:#c88d9a;
+
+    text-shadow:
+        0 0 15px
+        rgba(150,40,65,.30);
+}
+
+
+/* =========================
+   LÍNEA
+========================= */
+
+.linea{
+
+    width:0;
+
+    height:1px;
+
+    margin:
+        35px auto;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            #8c4050,
+            transparent
+        );
+
+    transition:
+        width 2s ease;
+}
+
+
+.linea.visible{
+    width:70%;
+}
+
+
+/* =========================
+   CELULAR
+========================= */
+
+@media(max-width:600px){
+
+    #carta{
+
+        padding:
+            50px 22px
+            80px;
+    }
+
+    .parrafo{
+
+        font-size:16px;
+
+        line-height:1.75;
+
+        margin-bottom:27px;
+    }
+
+    #titulo{
+
+        margin-bottom:35px;
+    }
+
+}
+
+</style>
+</head>
+
+
+<body>
+
+
+<div id="fondo"></div>
+
+<div class="luz"></div>
+
+<div id="lluvia"></div>
+
+
+<!-- =====================
+     PORTADA
+===================== -->
+
+<div id="inicio">
+
+    <div class="pequeno">
+        ALGO QUE NECESITO DECIRTE
+    </div>
+
+    <h1>
+        Hay algo que llevo
+        dentro de mí...
+    </h1>
+
+    <p>
+
+        Quizás no encuentre
+        las palabras perfectas.
+
+        <br>
+
+        Pero necesito ser sincera
+        contigo.
+
+    </p>
+
+
+    <button onclick="abrirCarta()">
+
+        Leer ❤️‍🩹
+
+    </button>
+
+</div>
+
+
+
+<!-- =====================
+     CARTA
+===================== -->
+
+<div id="carta">
+
+<div class="contenido">
+
+
+    <div
+        class="corazon elemento">
+
+        ❤️‍🩹
+
+    </div>
+
+
+    <h2
+        id="titulo"
+        class="elemento">
+
+        Tengo miedo...
+
+    </h2>
+
+
+    <div
+        class="linea elemento">
+    </div>
+
+
+    <p
+        class="parrafo elemento">
+
+        Tengo miedo de lo que
+        nos depare el futuro.
+
+        <br><br>
+
+        Tengo miedo de nuestra
+        relación y de volver a
+        lastimarte.
+
+    </p>
+
+
+    <p
+        class="parrafo elemento">
+
+        Sé que te quiero,
+        y precisamente por eso
+        me asusta pensar que
+        algunas de mis acciones
+        puedan seguir haciéndote
+        daño.
+
+    </p>
+
+
+    <p
+        class="parrafo elemento">
+
+        Sé que ha habido momentos
+        en los que
+
+        <strong>
+            te he lastimado
+        </strong>
+
+        y sé que eso no está bien.
+
+        <br><br>
+
+        No quiero acostumbrarme
+        a hacerte daño ni quiero
+        que tú tengas que
+        acostumbrarte a sentirlo.
+
+    </p>
+
+
+    <div
+        class="
+        parrafo
+        importante
+        elemento">
+
+        Eres una persona increíble
+        y quizás suene egoísta
+        decirlo...
+
+        <br><br>
+
+        pero no quiero perderte.
+
+    </div>
+
+
+    <p
+        class="parrafo elemento">
+
+        A veces tengo miedo de
+        no saber quererte de la
+        manera que mereces.
+
+        <br><br>
+
+        Tengo miedo de equivocarme
+        otra vez, de hacerte daño
+        sin querer y de que llegue
+        un momento en el que todo
+        esto termine lastimándonos
+        más.
+
+    </p>
+
+
+    <p
+        class="parrafo elemento">
+
+        Y es extraño...
+
+        <br><br>
+
+        porque al mismo tiempo
+        que tengo miedo de seguir
+        y lastimarte,
+
+        <strong>
+            también tengo miedo
+            de perderte.
+        </strong>
+
+    </p>
+
+
+    <div
+        class="linea elemento">
+    </div>
+
+
+    <p
+        class="parrafo elemento">
+
+        No te digo todo esto
+        porque no sienta nada
+        por ti.
+
+        <br><br>
+
+        Al contrario.
+
+        <br><br>
+
+        <strong>
+            Te lo digo porque
+            me importas.
+        </strong>
+
+    </p>
+
+
+    <p
+        class="parrafo elemento">
+
+        No sé qué va a pasar
+        mañana.
+
+        <br><br>
+
+        Tampoco quiero prometerte
+        que nunca volveré a
+        equivocarme.
+
+        <br><br>
+
+        Solo quería que supieras
+        lo que realmente está
+        pasando dentro de mí.
+
+    </p>
+
+
+    <div
+        class="
+        parrafo
+        importante
+        elemento">
+
+        Tengo miedo de perderte...
+
+        <br>
+
+        pero también tengo miedo
+        de lastimarte. ❤️‍🩹
+
+    </div>
+
+
+    <p
+        class="
+        parrafo
+        final
+        elemento">
+
+        Y aun con todo ese miedo...
+
+        <br>
+
+        sé que te quiero.
+
+    </p>
+
+
+</div>
+
+</div>
+
+
+
+<script>
+
+/* =========================
+   CREAR LLUVIA
+========================= */
+
+const lluvia =
+    document.getElementById(
+        "lluvia"
+    );
+
+
+for(
+    let i = 0;
+    i < 60;
+    i++
+){
+
+    const gota =
+        document.createElement(
+            "div"
+        );
+
+    gota.className =
+        "gota";
+
+
+    gota.style.left =
+        Math.random()
+        * 100
+        + "%";
+
+
+    gota.style.height =
+        (
+            30 +
+            Math.random()
+            * 80
+        )
+        + "px";
+
+
+    gota.style.opacity =
+        .1 +
+        Math.random()
+        * .4;
+
+
+    gota.style.animationDuration =
+        (
+            1.5 +
+            Math.random()
+            * 2
+        )
+        + "s";
+
+
+    gota.style.animationDelay =
+        (
+            Math.random()
+            * 4
+        )
+        + "s";
+
+
+    lluvia.appendChild(
+        gota
+    );
+
+}
+
+
+/* =========================
+   ABRIR CARTA
+========================= */
+
+function abrirCarta(){
+
+    const inicio =
+        document.getElementById(
+            "inicio"
+        );
+
+
+    const carta =
+        document.getElementById(
+            "carta"
+        );
+
+
+    /*
+    DESVANECER PORTADA
+    */
+
+    inicio.style.opacity =
+        "0";
+
+    inicio.style.transform =
+        "scale(1.05)";
+
+
+    /*
+    ACTIVAR LLUVIA
+    */
+
+    lluvia.classList.add(
+        "visible"
+    );
+
+
+    /*
+    MOSTRAR CARTA
+    */
+
+    setTimeout(
+        () => {
+
+            inicio.style.display =
+                "none";
+
+            carta.style.display =
+                "flex";
+
+            mostrarElementos();
+
+        },
+        1300
+    );
+
+}
+
+
+/* =========================
+   MOSTRAR MENSAJE
+========================= */
+
+function mostrarElementos(){
+
+    const elementos =
+        document.querySelectorAll(
+            ".elemento"
+        );
+
+
+    elementos.forEach(
+        (
+            elemento,
+            indice
+        ) => {
+
+            setTimeout(
+                () => {
+
+                    elemento
+                        .classList
+                        .add(
+                            "visible"
+                        );
+
+
+                    /*
+                    Desplaza lentamente
+                    hacia el texto nuevo.
+                    */
+
+                    if(
+                        indice > 2
+                    ){
+
+                        elemento
+                            .scrollIntoView({
+
+                                behavior:
+                                    "smooth",
+
+                                block:
+                                    "center"
+
+                            });
+
+                    }
+
+                },
+
+                600 +
+                indice * 2400
+
+            );
+
+        }
+    );
+
+}
+
+</script>
+
+</body>
+</html>
